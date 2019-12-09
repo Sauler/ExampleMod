@@ -1,14 +1,13 @@
-﻿using System;
-using System.Reflection;
+﻿using System.Reflection;
 using Harmony;
 
-namespace TestMod
+namespace ExampleMod
 {
     public class Main : Mod
     {
         public override void Activate()
         {
-            var harmony = HarmonyInstance.Create("com.sauler.cms.testmod");
+            var harmony = HarmonyInstance.Create("com.sauler.cms.examplemod");
             harmony.PatchAll(Assembly.GetExecutingAssembly());
         }
 
@@ -21,7 +20,7 @@ namespace TestMod
         {
             return new ModInfo
             {
-                Name = "Test Mod",
+                Name = "Example Mod",
                 Description = "Show popup with window name on window show",
                 Author = "Rafał Babiarz",
                 Version = "1.0.0"
