@@ -5,15 +5,17 @@ namespace ExampleMod
 {
     public class Main : Mod
     {
+        private HarmonyInstance _harmonyInstance;
         public override void Activate()
         {
-            var harmony = HarmonyInstance.Create("com.sauler.cms.examplemod");
-            harmony.PatchAll(Assembly.GetExecutingAssembly());
+            _harmonyInstance = HarmonyInstance.Create("com.sauler.cms.examplemod");
+            _harmonyInstance.PatchAll(Assembly.GetExecutingAssembly());
+            
         }
 
         public override void Deactivate()
         {
-            
+            _harmonyInstance.UnpatchAll();
         }
 
         public override ModInfo GetInfo()
